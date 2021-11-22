@@ -1,5 +1,7 @@
 ﻿By German almonte
+
 Starting date: 11/22/2021
+
 TYPE OF GAME: 2d Breakout game
 
 - The player will be controlling a platform on the bottom of the page in which they can go left or right.
@@ -25,3 +27,4 @@ Stages planned:
 12/02 - Style breakout game
 ---------------------------
 12/03 - Finishing touches.
+---------------------------
