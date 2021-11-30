@@ -1,0 +1,2 @@
+Issue: Website not displaying my javascript properly.
+Solution: missed capitalization on C, on line 2: let ctx = canvas.getContext('2d');
