@@ -1,3 +1,4 @@
+// PADDLE LOCATION AND SIZE
 export default class Paddle {
     constructor(gameWidth, gameHeight) {
         this.width = 150;
@@ -9,7 +10,11 @@ export default class Paddle {
 
     }
     draw(ctx){
+        ctx.fillStyle = '#7c9';
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
-
+    }
+    update(deltaTime){
+        if (!deltaTime) return;
+        this.position.x +=5 / deltaTime;
     }
 }
