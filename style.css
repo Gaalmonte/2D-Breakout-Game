@@ -13,3 +13,7 @@ h1 {
 #gameOutline {
     border : 1px solid orange;
 }
+
+img{
+    display:none;
+}

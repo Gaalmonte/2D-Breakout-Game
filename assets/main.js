@@ -1,6 +1,7 @@
 // GAME PLATFORM
 import Paddle from '/assets/paddle.js';
 import InputHandler from '/assets/Input.js';
+import Ball from '/assets/ball.js';
 
 //GAME BORDER
 let canvas = document.getElementById('gameOutline');
@@ -13,6 +14,7 @@ const GAME_HEIGHT = 600;
 
 // PLACES PADDLE
 let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
+let ball = new Ball();
 
 new InputHandler(paddle);
 
@@ -22,11 +24,11 @@ function gameLoop(timestamp){
     let deltaTime = timestamp - lastTime;
     lastTime = timestamp;
      // REMOVES OLD TILES TO NOT CLUTTER SCREEN
-    ctx.clearRect(0,0,800,600);
+    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     paddle.update(deltaTime);
     paddle.draw(ctx);
-
+    ball.draw(ctx)
     requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+requestAnimationFrame(gameLoop);
