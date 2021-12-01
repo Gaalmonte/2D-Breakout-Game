@@ -1,5 +1,6 @@
 // GAME PLATFORM
 import Paddle from '/assets/paddle.js';
+import InputHandler from '/assets/Input.js';
 
 //GAME BORDER
 let canvas = document.getElementById('gameOutline');
@@ -13,7 +14,7 @@ const GAME_HEIGHT = 600;
 // PLACES PADDLE
 let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
 
-paddle.draw(ctx);
+new InputHandler(paddle);
 
 let lastTime = 0 ;
 

@@ -1,2 +1,5 @@
 Issue: Website not displaying my javascript properly.
 Solution: missed capitalization on C, on line 2: let ctx = canvas.getContext('2d');
+
+Issue: Game loop not working, paddle.update not a function.
+Solution: Misspelled update with updatE
