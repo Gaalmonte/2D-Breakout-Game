@@ -5,9 +5,12 @@ export default class Ball {
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
         this.game = game;
+        this.size = 25;
+        this.reset();
+    }
+    reset(){
         this.position = {x:10, y:400};
         this.speed = {x: 4, y: -2};
-        this.size = 25;
     }
     draw(ctx){
         ctx.drawImage(
@@ -27,10 +30,15 @@ export default class Ball {
         }
 
         // Wall top or bottom
-        if (this.position.y + this.size > this.gameHeight || this.position.y <0) {
+        if (this.position.y <0) {
             this.speed.y = -this.speed.y;
         }
 
+        // bottom of game
+        if(this.position.y + this.size > this.gameHeight){
+            this.game.lives--;
+            this.reset();
+        }
        if(detectCollision(this, this.game.paddle )){
        this.speed.y = -this.speed.y;
        this.position.y = this.game.paddle.position.y - this.size;
