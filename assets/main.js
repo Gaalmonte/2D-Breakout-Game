@@ -11,7 +11,7 @@ const GAME_HEIGHT = 600;
 
 // PLACES PADDLE
 let game = new Game(GAME_WIDTH,GAME_HEIGHT);
-game.start();
+// game.start();
 
 
 let lastTime = 0 ;
