@@ -1,4 +1,18 @@
 import { detectCollision } from '/assets/collisionDetection.js';
+
+var sfx = {
+    minuslive: new Howl ({
+        src: [
+            '/assets/sound/sad.wav',
+        ],
+    }),
+    bounce: new Howl ({
+        src: ['/assets/sound/bounce.wav'],
+    }),
+};
+
+
+
 export default class Ball {
     constructor(game){
         this.image = document.getElementById('img_ball');
@@ -28,15 +42,18 @@ export default class Ball {
         // Wall on left or right
         if(this.position.x + this.size > this.gameWidth || this.position.x < 0) {
             this.speed.x = -this.speed.x;
+            sfx.bounce.play();
         }
 
         // Wall top or bottom
         if (this.position.y <0) {
             this.speed.y = -this.speed.y;
+            sfx.bounce.play();
         }
 
         // bottom of game
         if(this.position.y + this.size > this.gameHeight){
+            sfx.minuslive.play();
             this.game.lives--;
             this.uiLives.textContent = `Lives: ${this.game.lives}`;
             this.reset();
@@ -44,5 +61,6 @@ export default class Ball {
        if(detectCollision(this, this.game.paddle )){
        this.speed.y = -this.speed.y;
        this.position.y = this.game.paddle.position.y - this.size;
+       sfx.bounce.play();
     }}
 }

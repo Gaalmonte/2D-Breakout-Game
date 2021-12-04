@@ -1,4 +1,13 @@
 import { detectCollision } from "/assets/collisionDetection.js";
+
+
+var sfx = {
+    brickdestroy: new Howl ({
+        src: [
+            '/assets/sound/destroy.wav',
+        ],
+    }),
+};
 export default class Brick {
     constructor(game, position){
         this.image = document.getElementById('img_brick');
@@ -14,7 +23,8 @@ export default class Brick {
             this.game.ball.speed.y = -this.game.ball.speed.y;
             this.markedForDeletion = true;
             this.game.score += 20;
-            this.uiScore.textContent = `Score: ${this.game.score}`;
+            this.uiScore.textContent = `Score: ${this.game.score}`
+            sfx.brickdestroy.play();
         }
     }
     draw(ctx){
@@ -26,4 +36,5 @@ export default class Brick {
         this.height
         );
     }
+    
 }

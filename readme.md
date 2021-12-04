@@ -28,3 +28,11 @@ Stages planned:
 ---------------------------
 12/03 - Finishing touches.
 ---------------------------
+
+
+Background music called "Tripping" by frederickjbenjamin @ pixabay.com
+Winning music called "Background Loop Happy #01" by Zen Man @ pixabay.com
+Gameover music called "background loop aggressive #01" by Ze Man @ pixabay.com
+-1 live sound effect called "Moody Blip" by plumaudio @ freesound.org
+brick sound effect called "explosion_04" by littlerobotsoundfactory @freesound.org
+bounce sound effect called "Retro video game sfx - bounce" by OwlStorm @freesound.org
