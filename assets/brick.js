@@ -16,9 +16,6 @@ export default class Brick {
             this.game.score += 20;
             this.uiScore.textContent = `Score: ${this.game.score}`;
         }
-        // if(detectCollision === true){
-        // this.game.score++;
-        // this.uiLives.textContent = `Score: ${this.game.score}`;
     }
     draw(ctx){
         ctx.drawImage(

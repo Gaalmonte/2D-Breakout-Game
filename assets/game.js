@@ -2,7 +2,7 @@ import Paddle from '/assets/paddle.js';
 import InputHandler from '/assets/Input.js';
 import Ball from '/assets/ball.js';
 // import Brick from '/assets/brick.js';
-import {buildLevel, level1, level2, level3} from '/assets/levels.js';
+import {buildLevel, level1, level2, level3, level4} from '/assets/levels.js';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -10,6 +10,7 @@ const GAMESTATE = {
     MENU: 2,
     GAMEOVER: 3,
     NEWLEVEL: 4,
+    WIN: 5,
 }
 export default class Game {
     constructor(gameWidth, gameHeight){
@@ -22,14 +23,15 @@ export default class Game {
         this.bricks = []
         this.score = 0;
         this.lives = 3;
-        this.levels = [level1, level2, level3];
+        this.levels = [level1, level2, level3, level4];
         this.currentLevel = 0;
+        this.uiLevel = document.getElementById('levels');
         new InputHandler(this.paddle, this);
 
     }
     start(){
         if(this.gamestate !== GAMESTATE.MENU && 
-        this.gamestate !== GAMESTATE.NEWLEVEL && this.gamestate) 
+        this.gamestate !== GAMESTATE.NEWLEVEL) 
         return;
         this.bricks = buildLevel(this, this.levels[this.currentLevel]);
         this.ball.reset();
@@ -42,16 +44,20 @@ export default class Game {
 
     update(deltaTime){
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
+        if(this.score === 80) this.gamestate = GAMESTATE.WIN;
 
         if(this.gamestate === GAMESTATE.PAUSED || 
         this.gamestate === GAMESTATE.MENU ||
-        this.gamestate == GAMESTATE.GAMEOVER) 
+        this.gamestate === GAMESTATE.GAMEOVER ||
+        this.gamestate === GAMESTATE.WIN)
         return;
         if(this.bricks.length === 0){
             this.currentLevel++;
             this.gamestate = GAMESTATE.NEWLEVEL;
             this.start();
+            this.uiLevel.textContent = `Level: ${this.currentLevel}`
         }
+
         [...this.gameObjects, ...this.bricks].forEach((object) => object.update(deltaTime));
         this.bricks = this.bricks.filter(brick => !brick.markedForDeletion);
     }
@@ -84,16 +90,19 @@ export default class Game {
             ctx.textalign = "center";
             ctx.fillText("Game over!", this.gameWidth / 2, this.gameHeight / 2);
         };
-        if(this.gamestate == GAMESTATE.NEWLEVEL){
-            ctx.rect(0,0, this.gameWidth, this.gameHeight);
-            ctx.fillStyle = "rgba(0,0,0,0.5)";
-            ctx.fill();
-            ctx.font = "20px Arial";
-            ctx.fillStyle = "white";
-            ctx.textalign = "center";
-            ctx.fillText("NEW LEVEL!", this.gameWidth / 2, this.gameHeight / 2);
+        if(this.gamestate == GAMESTATE.WIN){
+                ctx.rect(0,0, this.gameWidth, this.gameHeight);
+                ctx.fillStyle = "rgba(0,0,0,1)";
+                ctx.fill();
+                ctx.font = "20px Arial";
+                ctx.fillStyle = "white";
+                ctx.textalign = "center";
+                ctx.fillText("You won!", this.gameWidth / 2, this.gameHeight / 2);
         }
 }
+    // var sfx = {
+
+    // }
     togglePause(){
         if(this.gamestate == GAMESTATE.PAUSED){
             this.gamestate = GAMESTATE.RUNNING;
