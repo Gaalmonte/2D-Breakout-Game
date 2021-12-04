@@ -4,8 +4,8 @@ export default class Brick {
         this.image = document.getElementById('img_brick');
         this.game = game;
         this.position = position;
-        this.width = 50 ;
-        this.height = 50;
+        this.width = 135;
+        this.height = 80;
         this.markedForDeletion = false;
     }
     update(){
@@ -13,6 +13,9 @@ export default class Brick {
             this.game.ball.speed.y = -this.game.ball.speed.y;
             this.markedForDeletion = true;
         }
+        // if(this.markedForDeletion === true){}
+        // this.game.score++;
+        // this.uiLives.textContent = `Score: ${this.game.score}`;
     }
     draw(ctx){
         ctx.drawImage(

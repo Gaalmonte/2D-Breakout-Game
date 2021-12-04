@@ -6,7 +6,7 @@ let canvas = document.getElementById('gameOutline');
 let ctx = canvas.getContext('2d');
 
 // GAME LAYOUT SIZE
-const GAME_WIDTH = 800;
+const GAME_WIDTH = 1200;
 const GAME_HEIGHT = 600;
 
 // PLACES PADDLE

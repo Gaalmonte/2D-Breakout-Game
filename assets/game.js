@@ -2,7 +2,7 @@ import Paddle from '/assets/paddle.js';
 import InputHandler from '/assets/Input.js';
 import Ball from '/assets/ball.js';
 // import Brick from '/assets/brick.js';
-import {buildLevel, level1, level2} from '/assets/levels.js';
+import {buildLevel, level1, level2, level3} from '/assets/levels.js';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -20,14 +20,17 @@ export default class Game {
         this.ball = new Ball(this);
         this.gameObjects = [];
         this.bricks = []
+        this.score = 0;
         this.lives = 3;
-        this.levels = [level1, level2];
+        this.levels = [level1, level2, level3];
         this.currentLevel = 0;
         new InputHandler(this.paddle, this);
 
     }
     start(){
-        if(this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL) return;
+        if(this.gamestate !== GAMESTATE.MENU && 
+        this.gamestate !== GAMESTATE.NEWLEVEL && this.gamestate) 
+        return;
         this.bricks = buildLevel(this, this.levels[this.currentLevel]);
         this.ball.reset();
         this.gameObjects = [
@@ -61,7 +64,7 @@ export default class Game {
         ctx.font = "20px Arial";
         ctx.fillStyle = "white";
         ctx.textalign = "center";
-        ctx.fillText("Paused", this.gameWidth / 2, this.gameHeight / 2);
+        ctx.fillText("Paused", this.gameWidth/2, this.gameHeight/2);
         };
         if(this.gamestate == GAMESTATE.MENU){
             ctx.rect(0,0, this.gameWidth, this.gameHeight);
@@ -70,7 +73,7 @@ export default class Game {
             ctx.font = "20px Arial";
             ctx.fillStyle = "white";
             ctx.textalign = "center";
-            ctx.fillText("Press SPACEBAR to start", this.gameWidth / 2, this.gameHeight / 2);
+            ctx.fillText("Press SPACEBAR to start", this.gameWidth/2, this.gameHeight/2);
         };
         if(this.gamestate == GAMESTATE.GAMEOVER){
             ctx.rect(0,0, this.gameWidth, this.gameHeight);
@@ -79,7 +82,16 @@ export default class Game {
             ctx.font = "20px Arial";
             ctx.fillStyle = "white";
             ctx.textalign = "center";
-            ctx.fillText("GAME OVER", this.gameWidth / 2, this.gameHeight / 2);
+            ctx.fillText("Game over!", this.gameWidth / 2, this.gameHeight / 2);
+        };
+        if(this.gamestate == GAMESTATE.NEWLEVEL){
+            ctx.rect(0,0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = "rgba(0,0,0,0.5)";
+            ctx.fill();
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "white";
+            ctx.textalign = "center";
+            ctx.fillText("NEW LEVEL!", this.gameWidth / 2, this.gameHeight / 2);
         }
 }
     togglePause(){

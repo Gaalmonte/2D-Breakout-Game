@@ -2,6 +2,7 @@ import { detectCollision } from '/assets/collisionDetection.js';
 export default class Ball {
     constructor(game){
         this.image = document.getElementById('img_ball');
+        this.uiLives = document.getElementById('lives');
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
         this.game = game;
@@ -37,6 +38,7 @@ export default class Ball {
         // bottom of game
         if(this.position.y + this.size > this.gameHeight){
             this.game.lives--;
+            this.uiLives.textContent = `Lives: ${this.game.lives}`;
             this.reset();
         }
        if(detectCollision(this, this.game.paddle )){
