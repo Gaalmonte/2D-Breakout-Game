@@ -1,4 +1,4 @@
-import Game from "/game.js";
+import Game from "/assets/game.js";
 
 //GAME BORDER
 let canvas = document.getElementById('gameOutline');
