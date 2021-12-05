@@ -1,10 +1,10 @@
-import { detectCollision } from "/collisionDetection.js";
+import { detectCollision } from "/assets/collisionDetection.js";
 
 
 var sfx = {
     brickdestroy: new Howl ({
         src: [
-            '/sound/destroy.wav',
+            '/assets/sound/destroy.wav',
         ],
     }),
 };
