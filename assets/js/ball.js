@@ -3,11 +3,11 @@ import { detectCollision } from './collisionDetection.js';
 var sfx = {
     minuslive: new Howl ({
         src: [
-            './sound/sad.wav',
+            '/sound/sad.wav',
         ],
     }),
     bounce: new Howl ({
-        src: ['./sound/bounce.wav'],
+        src: ['/sound/bounce.wav'],
     }),
 };
 
