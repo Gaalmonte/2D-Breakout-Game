@@ -1,7 +1,7 @@
-import Paddle from '/assets/paddle.js';
-import InputHandler from '/assets/Input.js';
-import Ball from '/assets/ball.js';
-import {buildLevel, level1, level2, level3, level4, level5} from '/assets/levels.js';
+import Paddle from '/paddle.js';
+import InputHandler from '/Input.js';
+import Ball from '/ball.js';
+import {buildLevel, level1, level2, level3, level4, level5} from '/levels.js';
 
 
 const GAMESTATE = {
@@ -17,17 +17,17 @@ const GAMESTATE = {
 var music = {
     backgroundm: new Howl ({
         src: [
-            '/assets/sound/background.mp3',
+            '/sound/background.mp3',
         ], loop:true
     }),
     winm: new Howl({
         src: [
-            '/assets/sound/win.mp3',
+            '/sound/win.mp3',
         ]
     }),
     lossm: new Howl({
         src: [
-            '/assets/sound/loss.mp3'
+            '/sound/loss.mp3'
         ]
     })
 };
