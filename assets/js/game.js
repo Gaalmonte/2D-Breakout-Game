@@ -17,17 +17,17 @@ const GAMESTATE = {
 var music = {
     backgroundm: new Howl ({
         src: [
-            '/sound/background.mp3',
+            './assets/sound/background.mp3',
         ], loop:true
     }),
     winm: new Howl({
         src: [
-            '/sound/win.mp3',
+            './assets/sound/win.mp3',
         ]
     }),
     lossm: new Howl({
         src: [
-            '/sound/loss.mp3'
+            './assets/sound/loss.mp3'
         ]
     })
 };
