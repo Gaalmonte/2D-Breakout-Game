@@ -1,8 +1,7 @@
 import Paddle from '/assets/paddle.js';
 import InputHandler from '/assets/Input.js';
 import Ball from '/assets/ball.js';
-// import Brick from '/assets/brick.js';
-import {buildLevel, level1, level2, level3, level4} from '/assets/levels.js';
+import {buildLevel, level1, level2, level3, level4, level5} from '/assets/levels.js';
 
 
 const GAMESTATE = {
@@ -12,6 +11,7 @@ const GAMESTATE = {
     GAMEOVER: 3,
     NEWLEVEL: 4,
     WIN: 5,
+    THANKS: 6,
 };
 
 var music = {
@@ -41,9 +41,9 @@ export default class Game {
         this.ball = new Ball(this);
         this.gameObjects = [];
         this.bricks = []
-        this.score = 0;
+        this.score = 1347;
         this.lives = 3;
-        this.levels = [level1, level2, level3, level4];
+        this.levels = [level1, level2, level3, level4, level5];
         this.currentLevel = 0;
         this.mute = false;
         this.uiLevel = document.getElementById('levels');
@@ -65,10 +65,13 @@ export default class Game {
 
     update(deltaTime){
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
-        if(this.score === 80) this.gamestate = GAMESTATE.WIN;
+        if(this.score === 2600) this.gamestate = GAMESTATE.WIN;
+        if(this.lives === 5) this.gamestate = GAMESTATE.THANKS;
 
         if(this.gamestate === GAMESTATE.RUNNING  && this.mute === false){
             if(!music.backgroundm.playing()){music.backgroundm.play()};
+            music.winm.stop();
+            music.lossm.stop();
         }
         if(this.gamestate === GAMESTATE.PAUSED  || this.mute === true){
             music.backgroundm.pause();
@@ -87,11 +90,18 @@ export default class Game {
         if(this.gamestate === GAMESTATE.GAMEOVER  && this.mute === true){
             music.lossm.pause(); 
         }
+        if(this.gamestate === GAMESTATE.THANKS && this.mute == true){
+            music.lossm.pause();
+        }
+        if(this.gamestate === GAMESTATE.THANKS && this.mute == false){
+            if(!music.lossm.playing()){music.lossm.play()};
+        }
         
         if(this.gamestate === GAMESTATE.PAUSED || 
         this.gamestate === GAMESTATE.MENU ||
         this.gamestate === GAMESTATE.GAMEOVER ||
-        this.gamestate === GAMESTATE.WIN)
+        this.gamestate === GAMESTATE.WIN ||
+        this.gamestate === GAMESTATE.THANKS)
         return;
         if(this.bricks.length === 0){
             this.currentLevel++;
@@ -109,38 +119,56 @@ export default class Game {
         ctx.rect(0,0, this.gameWidth, this.gameHeight);
         ctx.fillStyle = "rgba(0,0,0,0.5)";
         ctx.fill();
-        ctx.font = "20px Arial";
+        ctx.beginPath();
+        ctx.font = "20px Montserrat";
         ctx.fillStyle = "white";
-        ctx.textalign = "center";
-        ctx.fillText("Paused", this.gameWidth/2, this.gameHeight/2);
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Paused", 600, 300);
         };
         if(this.gamestate == GAMESTATE.MENU){
             ctx.rect(0,0, this.gameWidth, this.gameHeight);
             ctx.fillStyle = "rgba(0,0,0,1)";
             ctx.fill();
-            ctx.font = "20px Arial";
+            ctx.beginPath();
+            ctx.font = "20px Montserrat";
             ctx.fillStyle = "white";
             ctx.textalign = "center";
-            ctx.fillText("Press SPACEBAR to start", this.gameWidth/2, this.gameHeight/2);
+            ctx.textBaseline = "middle";
+            ctx.fillText("Press SPACEBAR to start", 500, 300);
         };
         if(this.gamestate == GAMESTATE.GAMEOVER){
             ctx.rect(0,0, this.gameWidth, this.gameHeight);
             ctx.fillStyle = "rgba(0,0,0,1)";
             ctx.fill();
-            ctx.font = "20px Arial";
+            ctx.beginPath();
+            ctx.font = "20px Montserrat";
             ctx.fillStyle = "white";
-            ctx.textalign = "center";
-            ctx.fillText("Game over!", this.gameWidth / 2, this.gameHeight / 2);
+            ctx.textBaseline = "middle";
+            ctx.fillText("Game over! Would you like to play again? (Y/N)", this.gameWidth / 2 - 200, 300);
         };
         if(this.gamestate == GAMESTATE.WIN){
                 ctx.rect(0,0, this.gameWidth, this.gameHeight);
                 ctx.fillStyle = "rgba(0,0,0,1)";
                 ctx.fill();
-                ctx.font = "20px Arial";
+                ctx.beginPath();
+                ctx.font = "20px Montserrat";
                 ctx.fillStyle = "white";
-                ctx.textalign = "center";
-                ctx.fillText("You won!", this.gameWidth / 2, this.gameHeight / 2);
+                ctx.fillStyle = "white";
+                ctx.textBaseline = "middle";
+                ctx.fillText("You won! Would you like to play again? (Y/N)", this.gameWidth / 2 - 200, 300);
         }
+        if(this.gamestate == GAMESTATE.THANKS){
+            ctx.rect(0,0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = "rgba(0,0,0,1)";
+            ctx.fill();
+            ctx.beginPath();
+            ctx.font = "20px Montserrat";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("Thanks for playing!", 600, 300);
+    }
 }
 
     togglePause(){
@@ -149,6 +177,19 @@ export default class Game {
         } else {
             this.gamestate = GAMESTATE.PAUSED;
         }
+    }
+
+    reset() {
+         this.gamestate = GAMESTATE.MENU;
+         this.gameObjects = [];
+         this.bricks = []
+         this.score = 0;
+         this.lives = 3;
+         this.currentLevel = 0;
+    }
+    //bandaid quick screen oops :o hehe
+    thanks(){
+        this.lives = 5;
     }
 
     btn() {

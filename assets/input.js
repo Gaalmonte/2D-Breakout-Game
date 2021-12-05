@@ -32,6 +32,16 @@ export default class InputHandler {
             case 32:
                 game.start();
                 break;
+            case 78:
+                console.log("n");
+                game.reset();
+                game.thanks();
+                break;
+            case 89:
+                console.log("y");
+                game.reset();
+                game.start();
+                break;
         }
     });
 

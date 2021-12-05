@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>2D BREAKOUT GAME </title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.core.min.js"></script>
-
+    <link href="/assets/images/gameboy.ico" rel="icon" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/4dad116ce0.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <h1>2D BREAKOUT GAME</h1>
-   
-    <h2 id="levels">Level: 0</h2>
-    <H2 id="lives">Lives: 3</H2>
-    <H2 id="score">Score: 0</H2>
-    <img id="img_ball" src="assets/images/ball.png">
+    <h1>2D BREAKOUT GAME BY GERMAN ALMONTE</h1>
+<div class="Gameinfo">
+    <div><i class="fas fa-gamepad" id="gamepad"></i><h2 id="levels"> Level: 0</h2></div>
+    <div><i class="fas fa-heart" id="heart"></i><H2 id="lives"> Lives: 3</H2></div>
+    <div><i class="fas fa-trophy" id="trophy"></i><H2 id="score"> Score: 0</H2></div>
+</div>
+    <img id="img_ball" src="assets/images/ball3.png">
     <img id="img_brick" src="assets/images/brickone.png">
-    <img id ="background" src="assets/images/background.jpg">
     <div><canvas id="gameOutline" width="1200" height="600"></canvas></div>
     <script type='module' src="assets/main.js"></script>
-    <button class ="play-music">play</button>
-    <button class ="stop-music">stop</button>
+    <div class="buttons">
+    <button class ="play-music">Play Music</button>
+    <button class ="stop-music">Pause Music</button></div>
 </body>
+<footer><a href='https://www.freepik.com/vectors/vintage'>Vintage vector created by stockgiu - www.freepik.com</a></footer>
 </html>

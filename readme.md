@@ -29,7 +29,8 @@ Stages planned:
 12/03 - Finishing touches.
 ---------------------------
 
-
+Ball image called "Pixel Art Bouncing Ball" @ netclipart.com
+Background image called "Arcade game world and pixel scene" by stockgiu @ freepik.com
 Background music called "Tripping" by frederickjbenjamin @ pixabay.com
 Winning music called "Background Loop Happy #01" by Zen Man @ pixabay.com
 Gameover music called "background loop aggressive #01" by Ze Man @ pixabay.com

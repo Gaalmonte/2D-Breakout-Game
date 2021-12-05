@@ -20,12 +20,12 @@ export default class Ball {
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
         this.game = game;
-        this.size = 25;
+        this.size = 40;
         this.reset();
     }
     reset(){
         this.position = {x:10, y:400};
-        this.speed = {x: 4, y: -2};
+        this.speed = {x: 2, y: -2};
     }
     draw(ctx){
         ctx.drawImage(

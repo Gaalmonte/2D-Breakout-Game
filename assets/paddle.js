@@ -22,8 +22,10 @@ export default class Paddle {
         this.speed= 0;
     }
     draw(ctx){
-        ctx.fillStyle = '#7c9';
+        ctx.fillStyle = '#a0522d';
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        ctx.strokeStyle = '#d99058'
+        ctx.strokeRect(this.position.x, this.position.y, this.width, this.height)
     }
     update(deltaTime){
         this.position.x += this.speed;

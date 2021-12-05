@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 h1 {
-    background-color: gray;
+    background-color: rgb(31, 118, 139);
     text-align: center;
-    font-family: "Montserrat", sans-serif;
+    color:rgb(255, 255, 255);
+    
 }
 
 *{
     background-color: palegoldenrod;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
 }
 
 #gameOutline {
@@ -17,11 +20,68 @@ h1 {
 img{
     display:none;
 }
-
-div {
-    text-align: center;
+canvas {
+    background-image: url('assets/images/mountain.jpg');
+    background-size: cover;
 }
 
-canvas {
-    background-image: url('assets/images/background.jpg')
+footer {
+    text-align: center;
+    font-size: xx-small;
+}
+button {
+    background-color:rgb(31, 118, 139);
+    color:rgb(255, 255, 255);
+    border-radius: 5px;
+}
+button:focus{
+    color:rgb(250, 179, 145);
+    border-radius: 3px;
+}
+
+button:focus:not(:focus-visible){
+    outline: 0;
+}
+
+#heart{
+    color:red;
+    font-size: 23px;
+}
+#trophy{
+    color: goldenrod;
+    font-size: 23px;
+}
+#gamepad{
+    color:indigo;
+    font-size: 23px;
+}
+
+.Gameinfo{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 1200px;
+    margin: auto;
+}
+
+.Gameinfo > div{
+    margin: 2px;
+    display: inline;
+    
+}
+
+h2 {
+    display: inline;
+    margin: 2px;
+}
+i {
+    display: inline;
+    margin: 2px;
+}
+
+footer{
+    position:absolute;
+    bottom:5px;
+    left:44%;
+
 }
