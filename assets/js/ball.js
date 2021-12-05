@@ -1,4 +1,4 @@
-import { detectCollision } from '/assets/js/collisionDetection.js';
+import { detectCollision } from './collisionDetection.js';
 
 var sfx = {
     minuslive: new Howl ({
