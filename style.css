@@ -30,8 +30,6 @@ footer {
     font-size: xx-small;
 }
 button {
-    background-color:rgb(31, 118, 139);
-    color:rgb(255, 255, 255);
     border-radius: 5px;
 }
 button:focus{
@@ -84,4 +82,14 @@ footer{
     bottom:5px;
     left:44%;
 
+}
+
+#nonmute{
+    color:rgb(31, 118, 139);
+    font-size:23px;
+}
+
+#mute{
+    color:rgb(252, 38, 0);
+    font-size:23px;
 }

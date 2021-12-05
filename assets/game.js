@@ -65,7 +65,7 @@ export default class Game {
 
     update(deltaTime){
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
-        if(this.score === 2600) this.gamestate = GAMESTATE.WIN;
+        if(this.score === 2900) this.gamestate = GAMESTATE.WIN;
         if(this.lives === 5) this.gamestate = GAMESTATE.THANKS;
 
         if(this.gamestate === GAMESTATE.RUNNING  && this.mute === false){
