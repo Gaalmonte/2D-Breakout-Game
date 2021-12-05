@@ -65,7 +65,7 @@ export default class Game {
 
     update(deltaTime){
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
-        if(this.score === 2900) this.gamestate = GAMESTATE.WIN;
+        if(this.score === 3300) this.gamestate = GAMESTATE.WIN;
         if(this.lives === 5) this.gamestate = GAMESTATE.THANKS;
 
         if(this.gamestate === GAMESTATE.RUNNING  && this.mute === false){
@@ -95,6 +95,7 @@ export default class Game {
         }
         if(this.gamestate === GAMESTATE.THANKS && this.mute == false){
             if(!music.lossm.playing()){music.lossm.play()};
+            if(music.winm.playing()){music.winm.stop()};
         }
         
         if(this.gamestate === GAMESTATE.PAUSED || 
