@@ -1,6 +1,6 @@
-import Paddle from '/assets/paddle.js';
-import InputHandler from '/assets/Input.js';
-import Ball from '/assets/ball.js';
+import Paddle from '.../assets/paddle.js';
+import InputHandler from '.../assets/Input.js';
+import Ball from '.../assets/ball.js';
 import {buildLevel, level1, level2, level3, level4, level5} from '/assets/levels.js';
 
 
