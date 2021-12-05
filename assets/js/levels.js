@@ -1,4 +1,4 @@
-import Brick from '/brick.js';
+import Brick from '/assets/js/brick.js';
 export function buildLevel(game, level){
     let bricks = [];
     level.forEach((row, rowIndex) => {

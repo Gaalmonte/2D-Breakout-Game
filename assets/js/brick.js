@@ -1,4 +1,4 @@
-import { detectCollision } from "/collisionDetection.js";
+import { detectCollision } from "/assets/js/collisionDetection.js";
 
 
 var sfx = {

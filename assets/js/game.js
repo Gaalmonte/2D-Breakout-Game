@@ -1,7 +1,7 @@
-import Paddle from '/paddle.js';
-import InputHandler from '/Input.js';
-import Ball from '/ball.js';
-import {buildLevel, level1, level2, level3, level4, level5} from '/levels.js';
+import Paddle from '/assets/js/paddle.js';
+import InputHandler from '/assets/js/Input.js';
+import Ball from '/assets/js/ball.js';
+import {buildLevel, level1, level2, level3, level4, level5} from '/assets/js/levels.js';
 
 
 const GAMESTATE = {
@@ -65,7 +65,7 @@ export default class Game {
 
     update(deltaTime){
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
-        if(this.score === 3300) this.gamestate = GAMESTATE.WIN;
+        if(this.score === 3100) this.gamestate = GAMESTATE.WIN;
         if(this.lives === 5) this.gamestate = GAMESTATE.THANKS;
 
         if(this.gamestate === GAMESTATE.RUNNING  && this.mute === false){
