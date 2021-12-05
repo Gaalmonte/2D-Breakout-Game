@@ -41,7 +41,7 @@ export default class Game {
         this.ball = new Ball(this);
         this.gameObjects = [];
         this.bricks = []
-        this.score = 1347;
+        this.score = 0;
         this.lives = 3;
         this.levels = [level1, level2, level3, level4, level5];
         this.currentLevel = 0;
