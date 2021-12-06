@@ -18,17 +18,18 @@ var music = {
     backgroundm: new Howl ({
         src: [
             './assets/sound/background.mp3',
-        ], loop:true
+        ], loop:true,
+        volume: 0.25,
     }),
     winm: new Howl({
         src: [
             './assets/sound/win.mp3',
-        ]
+        ],volume: 0.25,
     }),
     lossm: new Howl({
         src: [
             './assets/sound/loss.mp3'
-        ]
+        ],volume: 0.25,
     })
 };
 

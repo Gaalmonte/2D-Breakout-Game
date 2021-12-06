@@ -5,7 +5,7 @@ var sfx = {
     brickdestroy: new Howl ({
         src: [
             './assets/sound/destroy.wav',
-        ],
+        ],volume: 0.25,
     }),
 };
 export default class Brick {

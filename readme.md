@@ -10,6 +10,7 @@ TYPE OF GAME: 2d Breakout game
   If all the targets are destroyed then the user wins.
 
 Stages planned:
+
 11/22 - Planning
 ----------------
 11/23 - Setting up basic code
@@ -18,7 +19,7 @@ Stages planned:
 --------------------------------
 11/28 - The start of the 2d breakout game (Setting up the stage and levels)
 ---------------------------------------------------------------------------
-11/29 - Coding 2d breakout game (setting up movement and keeping track of score score)
+11/29 - Coding 2d breakout game (setting up movement and keeping track of score)
 --------------------------------------------------------------------------------------
 11/30 - Coding 2d breakout game (finishing touches and anything else)
 ---------------------------------------------------------------------

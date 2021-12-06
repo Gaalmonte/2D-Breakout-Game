@@ -4,10 +4,11 @@ var sfx = {
     minuslive: new Howl ({
         src: [
             './assets/sound/sad.wav',
-        ],
+        ],volume: 0.25,
     }),
     bounce: new Howl ({
         src: ['./assets/sound/bounce.wav'],
+        volume: 0.25,
     }),
 };
 
