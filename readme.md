@@ -29,6 +29,7 @@ Stages planned:
 ---------------------------
 12/03 - Finishing touches.
 ---------------------------
+12/07 - Link to game: https://gaalmonte.github.io/Milestone-Project-1/
 
 Ball image called "Pixel Art Bouncing Ball" @ netclipart.com
 
