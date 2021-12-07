@@ -2,6 +2,9 @@
 
 Starting date: 11/22/2021
 
+Link to game: https://gaalmonte.github.io/Milestone-Project-1/
+---------------------------
+
 TYPE OF GAME: 2d Breakout game
 
 - The player will be controlling a platform on the bottom of the page in which they can go left or right.
@@ -29,8 +32,7 @@ Stages planned:
 ---------------------------
 12/03 - Finishing touches.
 ---------------------------
-12/07 - Link to game: https://gaalmonte.github.io/Milestone-Project-1/
----------------------------
+
 
 Ball image called "Pixel Art Bouncing Ball" @ netclipart.com
 
