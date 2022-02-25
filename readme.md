@@ -2,7 +2,7 @@
 
 Starting date: 11/22/2021
 
-Link to game: https://gaalmonte.github.io/Milestone-Project-1/
+Link to game: https://gaalmonte.github.io/2D-Breakout-Game/
 ---------------------------
 
 TYPE OF GAME: 2d Breakout game
